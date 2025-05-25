@@ -10,6 +10,12 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { Analytics } from "@vercel/analytics/next";
+import { Tiro_Devanagari_Sanskrit } from 'next/font/google';
+
+const tiro = Tiro_Devanagari_Sanskrit({
+  weight: '400',
+  subsets: ['latin'],
+});
 
 const galleryImages = [
   '/images/FrontView.jpeg',
@@ -50,10 +56,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Swarana Farms - Luxury Farmhouse in Manesar</title>
-        <meta name="description" content="Experience luxury and tranquility at Swarana Farms, Manesar. Featuring a grand pool, lush gardens, and premium accommodations." />
-        <meta property="og:title" content="Swarana Farms - Luxury Farmhouse in Manesar" />
-        <meta property="og:description" content="Experience luxury and tranquility at Swarana Farms, Manesar. Featuring a grand pool, lush gardens, and premium accommodations." />
+        <title>Swarn Farms - Luxury Farmhouse in Manesar</title>
+        <meta name="description" content="Experience luxury and tranquility at Swarn Farms, Manesar. Featuring a grand pool, lush gardens, and premium accommodations." />
+        <meta property="og:title" content="Swarn Farms - Luxury Farmhouse in Manesar" />
+        <meta property="og:description" content="Experience luxury and tranquility at Swarn Farms, Manesar. Featuring a grand pool, lush gardens, and premium accommodations." />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/images/Pool.jpeg" />
       </Head>
@@ -61,9 +67,9 @@ export default function Home() {
         {/* Sticky Navigation Bar */}
         <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#145374] to-[#388e3c] shadow-lg">
           <div className="container mx-auto px-4 flex items-center justify-between h-16">
-            <a href="#hero" className="flex items-center space-x-2 text-3xl font-serif font-bold text-white tracking-wide">
+            <a href="#hero" className="flex items-center space-x-2 text-3xl font-bold text-white leading-none">
               <FaLeaf className="text-[#b2dfdb] text-2xl mb-1" />
-              <span>Swarana Farms</span>
+              <span className={tiro.className}>Swarn Farms</span>
             </a>
             
             {/* Mobile Menu Button */}
@@ -110,7 +116,7 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-transparent" />
           <div className="relative z-10 text-center px-4">
-            <h1 className="text-5xl md:text-7xl font-serif font-bold mb-8 text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">Swarana Farms</h1>
+            <h1 className="text-5xl md:text-7xl font-serif font-bold mb-8 text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">Swarn Farms</h1>
             <a href="#contact" className="inline-block px-8 py-3 rounded-full bg-[#388e3c] text-white font-semibold shadow-lg hover:bg-[#145374] transition">Book Your Stay</a>
           </div>
         </section>
@@ -180,9 +186,9 @@ export default function Home() {
               </div>
             </div>
             <div className="md:w-1/2 w-full text-center md:text-left">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-[#145374]">Swarana Farms – The Best Picnic Spot in Delhi NCR.</h2>
-              <p className="text-lg text-[#145374] mb-4">Nestled in the heart of Manesar, Swarana Farms offers a perfect blend of luxury, nature, and tranquility. Whether you&apos;re looking for a family getaway, a celebration, or a peaceful retreat, our farmhouse provides the ideal setting with a grand pool, lush gardens, and premium accommodations.</p>
-              <p className="text-lg text-[#145374]">Come experience the serenity and elegance that make Swarana Farms truly special.</p>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-[#145374]">Swarn Farms – The Best Picnic Spot in Delhi NCR.</h2>
+              <p className="text-lg text-[#145374] mb-4">Nestled in the heart of Manesar, Swarn Farms offers a perfect blend of luxury, nature, and tranquility. Whether you&apos;re looking for a family getaway, a celebration, or a peaceful retreat, our farmhouse provides the ideal setting with a grand pool, lush gardens, and premium accommodations.</p>
+              <p className="text-lg text-[#145374]">Come experience the serenity and elegance that make Swarn Farms truly special.</p>
               <p className="text-lg md:text-xl text-[#145374] font-semibold">Book your day outing, evening outing, or night stay today!</p>
             </div>
           </div>
@@ -242,7 +248,7 @@ export default function Home() {
               </div>
               <div className="flex items-center space-x-4">
                 <FaEnvelope className="text-2xl text-[#388e3c]" />
-                <a href="mailto:stayatswarnafarms@gmail.com" className="text-lg font-medium text-[#145374] hover:text-[#388e3c] transition-colors">stayatswarnafarms@gmail.com</a>
+                <a href="mailto:stayatswarnfarms@gmail.com" className="text-lg font-medium text-[#145374] hover:text-[#388e3c] transition-colors">stayatswarnfarms@gmail.com</a>
               </div>
               <div className="flex items-start space-x-4">
                 <FaMapMarkerAlt className="text-2xl text-[#388e3c] mt-1" />
@@ -255,7 +261,7 @@ export default function Home() {
             </div>
             <div className="bg-[#e0f2e9] rounded-xl shadow-lg p-4 h-[350px] overflow-hidden border border-[#b2dfdb]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.2233913121413!2d77.0127693!3d28.5024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1a9c31e0f1f7%3A0x2b066bd4cc2b3d3a!2sKhedki%2C%20Haryana%20122051!5e0!3m2!1sen!2sin!4v1647881234567!5m2!1sen!2sin"
+                src="https://www.google.com/maps?q=28.2964211,76.9242249&z=15&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -269,7 +275,7 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="py-6 bg-[#e0f2e9] border-t border-[#b2dfdb] text-center text-[#145374] font-sans">
-          &copy; {new Date().getFullYear()} Swarana Farms. All rights reserved.
+          &copy; {new Date().getFullYear()} Swarn Farms. All rights reserved.
         </footer>
       </main>
       <Analytics />
