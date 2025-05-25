@@ -24,6 +24,11 @@ const galleryImages = [
   '/images/slider2.jpeg',
 ];
 
+const welcomeSliderImages = [
+  '/images/Pool.jpeg',
+  '/images/Slider2.jpeg',
+];
+
 // Add custom styles for Swiper pagination
 const swiperStyles = `
   .swiper-pagination-bullet {
@@ -158,28 +163,19 @@ export default function Home() {
                   loop={true}
                   className="w-full h-full"
                 >
-                  <SwiperSlide>
-                    <div className="relative w-full h-full">
-                      <Image 
-                        src="/images/Pool.jpeg" 
-                        alt="Pool View" 
-                        fill 
-                        className="object-cover object-center"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="relative w-full h-full">
-                      <Image 
-                        src="/images/slider2.jpeg" 
-                        alt="Farmhouse View" 
-                        fill 
-                        className="object-cover object-center"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                    </div>
-                  </SwiperSlide>
+                  {welcomeSliderImages.map((img, i) => (
+                    <SwiperSlide key={i}>
+                      <div className="relative w-full h-full">
+                        <Image 
+                          src={img} 
+                          alt={`Welcome slider image ${i + 1}`} 
+                          fill 
+                          className="object-cover object-center"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                      </div>
+                    </SwiperSlide>
+                  ))}
                 </Swiper>
               </div>
             </div>
