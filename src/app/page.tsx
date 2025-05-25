@@ -6,12 +6,13 @@ import { useState } from 'react';
 import Head from 'next/head';
 
 const galleryImages = [
-  '/images/Pool.jpeg',
-  '/images/GardenView.jpeg',
-  '/images/FrontView.jpeg',
-  '/images/Pool.jpeg',
-  '/images/GardenView.jpeg',
-  '/images/FrontView.jpeg',
+  { src: '/images/Pool.jpeg', label: 'Pool' },
+  { src: '/images/BarCabinet.jpeg', label: 'Bar Cabinet' },
+  { src: '/images/CommonArea.jpeg', label: 'Common Area' },
+  { src: '/images/GardenView.jpeg', label: 'Garden View' },
+  { src: '/images/Terrace.jpeg', label: 'Terrace' },
+  { src: '/images/chandelier.jpeg', label: 'Chandelier' },
+  { src: '/images/FrontView.jpeg', label: 'Front View' },
 ];
 
 export default function Home() {
@@ -118,15 +119,20 @@ export default function Home() {
             <h2 className="text-4xl font-serif font-bold text-center mb-12 text-[#145374]">Photo Gallery</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {galleryImages.map((img, i) => (
-                <div key={i} className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:scale-105 transition border border-[#b2dfdb]">
-                  <Image 
-                    src={img} 
-                    alt={`Gallery image ${i + 1}`} 
-                    fill 
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    loading="lazy"
-                  />
+                <div key={i} className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:scale-105 transition border border-[#b2dfdb] flex flex-col">
+                  <div className="relative flex-1">
+                    <Image 
+                      src={img.src} 
+                      alt={img.label} 
+                      fill 
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="bg-white/80 text-[#145374] text-center py-2 font-semibold text-lg w-full absolute bottom-0 left-0 z-20 rounded-b-xl">
+                    {img.label}
+                  </div>
                 </div>
               ))}
             </div>
