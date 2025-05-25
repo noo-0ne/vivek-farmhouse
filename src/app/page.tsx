@@ -153,8 +153,16 @@ export default function Home() {
                 <a href="tel:+919953721317" className="text-lg font-medium text-[#145374] hover:text-[#388e3c] transition-colors">+91 9953721317</a>
               </div>
               <div className="flex items-center space-x-4">
+                <FaPhone className="text-2xl text-[#388e3c]" />
+                <a href="tel:+919818009007" className="text-lg font-medium text-[#145374] hover:text-[#388e3c] transition-colors">+91 9818009007</a>
+              </div>
+              <div className="flex items-center space-x-4">
                 <FaEnvelope className="text-2xl text-[#388e3c]" />
                 <a href="mailto:akskamboj1998@gmail.com" className="text-lg font-medium text-[#145374] hover:text-[#388e3c] transition-colors">akskamboj1998@gmail.com</a>
+              </div>
+              <div className="flex items-center space-x-4">
+                <FaEnvelope className="text-2xl text-[#388e3c]" />
+                <a href="mailto:stayatswarnafarms@gmail.com" className="text-lg font-medium text-[#145374] hover:text-[#388e3c] transition-colors">stayatswarnafarms@gmail.com</a>
               </div>
               <div className="flex items-center space-x-4">
                 <FaMapMarkerAlt className="text-2xl text-[#388e3c]" />
