@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Navigation, Autoplay, Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import { Analytics } from "@vercel/analytics/next";
 
 const galleryImages = [
@@ -54,35 +54,38 @@ export default function Home() {
       </Head>
       <main className="min-h-screen bg-background">
         {/* Sticky Navigation Bar */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-[#e0f2e9]/90 backdrop-blur-md shadow-md border-b border-[#b2dfdb]">
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#145374] to-[#388e3c] shadow-lg border-b border-[#b2dfdb]">
           <div className="container mx-auto px-4 flex items-center justify-between h-16">
-            <a href="#hero" className="text-2xl font-serif font-bold text-[#145374] tracking-wide">Swarana Farms</a>
+            <a href="#hero" className="flex items-center space-x-2 text-3xl font-serif font-bold text-white tracking-wide">
+              <FaLeaf className="text-[#b2dfdb] text-2xl mb-1" />
+              <span>Swarana Farms</span>
+            </a>
             
             {/* Mobile Menu Button */}
             <button 
-              className="md:hidden text-[#388e3c]"
+              className="md:hidden text-white"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-8 font-semibold text-lg">
-              <a href="#features" className="hover:text-[#388e3c] text-[#145374] transition-colors">Features</a>
-              <a href="#gallery" className="hover:text-[#388e3c] text-[#145374] transition-colors">Gallery</a>
-              <a href="#about" className="hover:text-[#388e3c] text-[#145374] transition-colors">About</a>
-              <a href="#contact" className="hover:text-[#388e3c] text-[#145374] transition-colors">Contact</a>
+            <div className="hidden md:flex space-x-6 font-semibold text-lg">
+              <a href="#features" className="relative px-3 py-1 rounded-full text-white hover:bg-[#388e3c]/30 transition-colors after:absolute after:left-1/2 after:-bottom-1 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-white after:transition-all after:duration-300 hover:after:w-2/3">Features</a>
+              <a href="#gallery" className="relative px-3 py-1 rounded-full text-white hover:bg-[#388e3c]/30 transition-colors after:absolute after:left-1/2 after:-bottom-1 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-white after:transition-all after:duration-300 hover:after:w-2/3">Gallery</a>
+              <a href="#about" className="relative px-3 py-1 rounded-full text-white hover:bg-[#388e3c]/30 transition-colors after:absolute after:left-1/2 after:-bottom-1 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-white after:transition-all after:duration-300 hover:after:w-2/3">About</a>
+              <a href="#contact" className="relative px-3 py-1 rounded-full text-white hover:bg-[#388e3c]/30 transition-colors after:absolute after:left-1/2 after:-bottom-1 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-white after:transition-all after:duration-300 hover:after:w-2/3">Contact</a>
             </div>
           </div>
 
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <div className="md:hidden bg-[#e0f2e9] border-t border-[#b2dfdb]">
+            <div className="md:hidden bg-gradient-to-r from-[#145374] to-[#388e3c] border-t border-[#b2dfdb]">
               <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-                <a href="#features" className="font-semibold text-lg hover:text-[#388e3c] text-[#145374] transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Features</a>
-                <a href="#gallery" className="font-semibold text-lg hover:text-[#388e3c] text-[#145374] transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Gallery</a>
-                <a href="#about" className="font-semibold text-lg hover:text-[#388e3c] text-[#145374] transition-colors" onClick={() => setIsMobileMenuOpen(false)}>About</a>
-                <a href="#contact" className="font-semibold text-lg hover:text-[#388e3c] text-[#145374] transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
+                <a href="#features" className="font-semibold text-lg text-white rounded-full px-3 py-2 hover:bg-[#388e3c]/30 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Features</a>
+                <a href="#gallery" className="font-semibold text-lg text-white rounded-full px-3 py-2 hover:bg-[#388e3c]/30 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Gallery</a>
+                <a href="#about" className="font-semibold text-lg text-white rounded-full px-3 py-2 hover:bg-[#388e3c]/30 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>About</a>
+                <a href="#contact" className="font-semibold text-lg text-white rounded-full px-3 py-2 hover:bg-[#388e3c]/30 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
               </div>
             </div>
           )}
@@ -182,7 +185,8 @@ export default function Home() {
             </div>
             <div className="md:w-1/2 w-full text-center md:text-left">
               <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-[#145374]">Swarana Farms – The Best Picnic Spot in Delhi NCR.</h2>
-              <p className="text-lg md:text-xl text-[#145374] mb-6">Welcome to Swarna Farms, your perfect destination for day outings, evening get-togethers, or night stays in Gurgaon. Swarna Farms is more than just a farmhouse – it's a place for adventure, relaxation, and unforgettable memories. Whether you're planning a family picnic, a group adventure, or a peaceful retreat, Swarna Farms offers the best of nature, comfort, and fun in Delhi NCR.</p>
+              <p className="text-lg text-[#145374] mb-4">Nestled in the heart of Manesar, Swarana Farms offers a perfect blend of luxury, nature, and tranquility. Whether you&apos;re looking for a family getaway, a celebration, or a peaceful retreat, our farmhouse provides the ideal setting with a grand pool, lush gardens, and premium accommodations.</p>
+              <p className="text-lg text-[#145374]">Come experience the serenity and elegance that make Swarana Farms truly special.</p>
               <p className="text-lg md:text-xl text-[#145374] font-semibold">Book your day outing, evening outing, or night stay today!</p>
             </div>
           </div>
