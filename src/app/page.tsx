@@ -137,7 +137,7 @@ export default function Home() {
         <section id="about" className="py-20 bg-white border-b border-[#b2dfdb]">
           <div className="container mx-auto px-4 max-w-3xl text-center">
             <h2 className="text-4xl font-serif font-bold mb-6 text-[#145374]">Welcome to Swarana Farms</h2>
-            <p className="text-lg text-[#145374] mb-4">Nestled in the heart of Manesar, Swarana Farms offers a perfect blend of luxury, nature, and tranquility. Whether you're looking for a family getaway, a celebration, or a peaceful retreat, our farmhouse provides the ideal setting with a grand pool, lush gardens, and premium accommodations.</p>
+            <p className="text-lg text-[#145374] mb-4">Nestled in the heart of Manesar, Swarana Farms offers a perfect blend of luxury, nature, and tranquility. Whether you&apos;re looking for a family getaway, a celebration, or a peaceful retreat, our farmhouse provides the ideal setting with a grand pool, lush gardens, and premium accommodations.</p>
             <p className="text-lg text-[#145374]">Come experience the serenity and elegance that make Swarana Farms truly special.</p>
           </div>
         </section>
