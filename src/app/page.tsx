@@ -4,6 +4,12 @@ import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaSwimmingPool, FaLeaf, FaBed, FaS
 import Image from 'next/image';
 import { useState } from 'react';
 import Head from 'next/head';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Navigation, Autoplay, Pagination } from 'swiper/modules';
+import { Analytics } from "@vercel/analytics/next";
 
 const galleryImages = [
   '/images/FrontView.jpeg',
@@ -15,7 +21,23 @@ const galleryImages = [
   '/images/Terrace.jpeg',
   '/images/bedroom.jpeg',
   '/images/Washroom.jpeg',
+  '/images/slider2.jpeg',
 ];
+
+// Add custom styles for Swiper pagination
+const swiperStyles = `
+  .swiper-pagination-bullet {
+    width: 12px !important;
+    height: 12px !important;
+    background: #b2dfdb !important;
+    opacity: 1 !important;
+  }
+  .swiper-pagination-bullet-active {
+    width: 16px !important;
+    height: 16px !important;
+    background: #388e3c !important;
+  }
+`;
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -70,8 +92,8 @@ export default function Home() {
         {/* Hero Section */}
         <section id="hero" className="relative h-[70vh] flex items-center justify-center">
           <Image 
-            src="/images/Pool.jpeg" 
-            alt="Swarana Farms Pool" 
+            src="/images/FrontView.jpeg" 
+            alt="Swarana Farms Front View" 
             fill 
             className="object-cover" 
             priority 
@@ -80,8 +102,7 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-transparent" />
           <div className="relative z-10 text-center px-4">
-            <h1 className="text-5xl md:text-7xl font-serif font-bold mb-4 text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">Swarana Farms</h1>
-            <p className="text-2xl md:text-3xl mb-8 font-sans text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">Luxurious Pool, Lush Gardens, Unforgettable Stays</p>
+            <h1 className="text-5xl md:text-7xl font-serif font-bold mb-8 text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">Swarana Farms</h1>
             <a href="#contact" className="inline-block px-8 py-3 rounded-full bg-[#388e3c] text-white font-semibold shadow-lg hover:bg-[#145374] transition">Book Your Stay</a>
           </div>
         </section>
@@ -115,41 +136,106 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Gallery Section */}
-        <section id="gallery" className="py-20 bg-[#f4faf6] border-b border-[#b2dfdb]">
-          <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-serif font-bold text-center mb-12 text-[#145374]">Photo Gallery</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {galleryImages.map((img, i) => (
-                <div key={i} className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:scale-105 transition border border-[#b2dfdb]">
-                  <Image 
-                    src={img} 
-                    alt={`Gallery image ${i + 1}`} 
-                    fill 
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
+        {/* About/Welcome Split Section */}
+        <section className="py-20 bg-[#f4faf6] border-b border-[#b2dfdb]">
+          <style>{swiperStyles}</style>
+          <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12 max-w-7xl">
+            <div className="md:w-1/2 w-full flex justify-center mb-8 md:mb-0">
+              <div className="relative w-full aspect-[4/3] max-w-2xl rounded-xl overflow-hidden shadow-lg border border-[#b2dfdb]">
+                <Swiper
+                  modules={[Pagination, Autoplay]}
+                  pagination={{
+                    clickable: true,
+                    dynamicBullets: true,
+                  }}
+                  autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                  }}
+                  loop={true}
+                  className="w-full h-full"
+                >
+                  <SwiperSlide>
+                    <div className="relative w-full h-full">
+                      <Image 
+                        src="/images/Pool.jpeg" 
+                        alt="Pool View" 
+                        fill 
+                        className="object-cover object-center"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className="relative w-full h-full">
+                      <Image 
+                        src="/images/slider2.jpeg" 
+                        alt="Farmhouse View" 
+                        fill 
+                        className="object-cover object-center"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
+              </div>
+            </div>
+            <div className="md:w-1/2 w-full text-center md:text-left">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-[#145374]">Swarana Farms – The Best Picnic Spot in Delhi NCR.</h2>
+              <p className="text-lg md:text-xl text-[#145374] mb-6">Welcome to Swarna Farms, your perfect destination for day outings, evening get-togethers, or night stays in Gurgaon. Swarna Farms is more than just a farmhouse – it's a place for adventure, relaxation, and unforgettable memories. Whether you're planning a family picnic, a group adventure, or a peaceful retreat, Swarna Farms offers the best of nature, comfort, and fun in Delhi NCR.</p>
+              <p className="text-lg md:text-xl text-[#145374] font-semibold">Book your day outing, evening outing, or night stay today!</p>
             </div>
           </div>
         </section>
 
-        {/* About Section */}
-        <section id="about" className="py-20 bg-white border-b border-[#b2dfdb]">
-          <div className="container mx-auto px-4 max-w-3xl text-center">
-            <h2 className="text-4xl font-serif font-bold mb-6 text-[#145374]">Welcome to Swarana Farms</h2>
-            <p className="text-lg text-[#145374] mb-4">Nestled in the heart of Manesar, Swarana Farms offers a perfect blend of luxury, nature, and tranquility. Whether you&apos;re looking for a family getaway, a celebration, or a peaceful retreat, our farmhouse provides the ideal setting with a grand pool, lush gardens, and premium accommodations.</p>
-            <p className="text-lg text-[#145374]">Come experience the serenity and elegance that make Swarana Farms truly special.</p>
+        {/* Gallery Section - Swiper Carousel */}
+        <section id="gallery" className="py-20 bg-[#f4faf6] border-b border-[#b2dfdb]">
+          <style>{swiperStyles}</style>
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-serif font-bold text-center mb-12 text-[#145374]">Photo Gallery</h2>
+            <div className="relative">
+              <Swiper
+                modules={[Autoplay, Pagination]}
+                pagination={{
+                  clickable: true,
+                  dynamicBullets: true,
+                }}
+                autoplay={{
+                  delay: 3000,
+                  disableOnInteraction: false,
+                }}
+                spaceBetween={24}
+                slidesPerView={1}
+                breakpoints={{
+                  640: { slidesPerView: 2 },
+                  1024: { slidesPerView: 3 },
+                }}
+                className="w-full"
+              >
+                {galleryImages.map((img, i) => (
+                  <SwiperSlide key={i}>
+                    <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-lg border border-[#b2dfdb]">
+                      <Image 
+                        src={img} 
+                        alt={`Gallery image ${i + 1}`} 
+                        fill 
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        loading="lazy"
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
           </div>
         </section>
 
         {/* Contact & Location Section */}
-        <section id="contact" className="py-20 bg-[#f4faf6]">
+        <section id="contact" className="pt-10 pb-20 bg-[#f4faf6]">
           <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-            <div className="bg-[#e0f2e9] rounded-xl shadow-lg p-8 flex flex-col space-y-6 border border-[#b2dfdb]">
-              <h2 className="text-3xl font-serif font-bold text-[#145374] mb-4">Contact Us</h2>
+            <div className="bg-[#e0f2e9] rounded-xl shadow-lg p-6 h-[350px] flex flex-col justify-center space-y-5 border border-[#b2dfdb]">
+              <h2 className="text-3xl font-serif font-bold text-[#145374] mb-2 text-left">Contact Us</h2>
               <div className="flex items-center space-x-4">
                 <FaPhone className="text-2xl text-[#388e3c]" />
                 <a href="tel:+919818009007" className="text-lg font-medium text-[#145374] hover:text-[#388e3c] transition-colors">+91 9818009007</a>
@@ -158,18 +244,16 @@ export default function Home() {
                 <FaEnvelope className="text-2xl text-[#388e3c]" />
                 <a href="mailto:stayatswarnafarms@gmail.com" className="text-lg font-medium text-[#145374] hover:text-[#388e3c] transition-colors">stayatswarnafarms@gmail.com</a>
               </div>
-              <div className="flex items-center space-x-4">
-                <FaMapMarkerAlt className="text-2xl text-[#388e3c]" />
+              <div className="flex items-start space-x-4">
+                <FaMapMarkerAlt className="text-2xl text-[#388e3c] mt-1" />
                 <div className="text-[#145374]">
-                  <div className="font-semibold">MUSTIL NO 24 KILA NO 112</div>
-                  <div>VILLAGE, KHEDKI</div>
-                  <div>Near Airtel Mobile Tower</div>
-                  <div>TEHSIL MANESAR</div>
-                  <div>Gururgram-122105</div>
+                  <div className="font-bold text-[#145374]">MUSTIL NO 24 KILA NO 112</div>
+                  <div>VILLAGE KHEDKI, Near Airtel Mobile Tower,</div>
+                  <div>TEHSIL MANESAR, Gururgram-122105</div>
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-xl shadow-lg p-4 h-[350px] overflow-hidden border border-[#b2dfdb]">
+            <div className="bg-[#e0f2e9] rounded-xl shadow-lg p-4 h-[350px] overflow-hidden border border-[#b2dfdb]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.2233913121413!2d77.0127693!3d28.5024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1a9c31e0f1f7%3A0x2b066bd4cc2b3d3a!2sKhedki%2C%20Haryana%20122051!5e0!3m2!1sen!2sin!4v1647881234567!5m2!1sen!2sin"
                 width="100%"
@@ -188,6 +272,7 @@ export default function Home() {
           &copy; {new Date().getFullYear()} Swarana Farms. All rights reserved.
         </footer>
       </main>
+      <Analytics />
     </>
   );
 }
