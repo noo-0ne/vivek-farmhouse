@@ -54,7 +54,7 @@ export default function Home() {
       </Head>
       <main className="min-h-screen bg-background">
         {/* Sticky Navigation Bar */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#145374] to-[#388e3c] shadow-lg border-b border-[#b2dfdb]">
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#145374] to-[#388e3c] shadow-lg">
           <div className="container mx-auto px-4 flex items-center justify-between h-16">
             <a href="#hero" className="flex items-center space-x-2 text-3xl font-serif font-bold text-white tracking-wide">
               <FaLeaf className="text-[#b2dfdb] text-2xl mb-1" />
@@ -140,7 +140,7 @@ export default function Home() {
         </section>
 
         {/* About/Welcome Split Section */}
-        <section className="py-20 bg-[#f4faf6] border-b border-[#b2dfdb]">
+        <section id="about" className="py-20 bg-white border-b border-[#b2dfdb]">
           <style>{swiperStyles}</style>
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12 max-w-7xl">
             <div className="md:w-1/2 w-full flex justify-center mb-8 md:mb-0">
