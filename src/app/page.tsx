@@ -13,6 +13,8 @@ const galleryImages = [
   '/images/chandelier.jpeg',
   '/images/BarCabinet.jpeg',
   '/images/Terrace.jpeg',
+  '/images/bedroom.jpeg',
+  '/images/Washroom.jpeg',
 ];
 
 export default function Home() {
@@ -150,15 +152,7 @@ export default function Home() {
               <h2 className="text-3xl font-serif font-bold text-[#145374] mb-4">Contact Us</h2>
               <div className="flex items-center space-x-4">
                 <FaPhone className="text-2xl text-[#388e3c]" />
-                <a href="tel:+919953721317" className="text-lg font-medium text-[#145374] hover:text-[#388e3c] transition-colors">+91 9953721317</a>
-              </div>
-              <div className="flex items-center space-x-4">
-                <FaPhone className="text-2xl text-[#388e3c]" />
                 <a href="tel:+919818009007" className="text-lg font-medium text-[#145374] hover:text-[#388e3c] transition-colors">+91 9818009007</a>
-              </div>
-              <div className="flex items-center space-x-4">
-                <FaEnvelope className="text-2xl text-[#388e3c]" />
-                <a href="mailto:akskamboj1998@gmail.com" className="text-lg font-medium text-[#145374] hover:text-[#388e3c] transition-colors">akskamboj1998@gmail.com</a>
               </div>
               <div className="flex items-center space-x-4">
                 <FaEnvelope className="text-2xl text-[#388e3c]" />
